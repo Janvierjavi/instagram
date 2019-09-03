@@ -1,0 +1,7 @@
+<% @favorites.each do |favorite| %>
+    <%= favorite.content %>
+    <%= image_tag favorite.image.url %>
+    <%= favorite.user.First_Name %>
+    <%= favorite.user.Second_Name %> 
+    <%= link_to 'back', post %>
+   <%end%>

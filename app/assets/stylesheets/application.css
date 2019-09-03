@@ -1,0 +1,15 @@
+.cont{
+    position: relative;
+    left:35%;
+}
+
+.cont1{
+    position: relative;
+    left:35%;
+    top:5px;
+}
+.cardip{
+    position: absolute;
+    left: 30%;
+}
+

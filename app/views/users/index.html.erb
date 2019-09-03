@@ -1,0 +1,47 @@
+<% if logged_in? %>
+<% check = 0, links='1', id=nil %>
+<% @profiles.each do |profile| %>
+<% if current_user.id == profile.user_id %>
+  <% check = 1%>
+  <%links = profile.image.url %>
+  <%id =profile%>
+<% end %>
+<% end %>
+<% if check==1 %>
+<p style="color:blue">profile picture</p>
+<p><%= image_tag links, class:"round" unless links.blank? %></p>
+<%= link_to 'change ', edit_profile_path(id) %>
+<%= link_to 'remove ', id, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% else %>
+<p><i class="fal fa-user"></i></p>
+<%= link_to 'upload a profile picture', new_profile_path %>
+<% end %>
+<% end %>
+
+</p>
+<%= link_to "Login", new_session_path %>
+<%= link_to 'Edit', edit_user_path(@user) %> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+<h1>Users</h1>
+<% @users.each do |user| %>
+    <%= user.First_Name %> <%= user.Second_Name %>
+        <%= user.Email %>
+        <%= link_to 'Show', user %>
+        <%= link_to 'Edit', edit_user_path(user) %>
+        <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+     <% end %>
+<br>
+<%= link_to 'New User', new_user_path %>
