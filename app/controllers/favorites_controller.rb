@@ -6,6 +6,6 @@ class FavoritesController < ApplicationController
     
       def destroy
         favorite = current_user.favorites.find_by(id: params[:id]).destroy
-        redirect_to posts_url, notice: "#{favorite.post.user.First_Name.Second_Name}'s post has been unfavored"
+        redirect_to posts_url, notice: "#{favorites.post.user.First_Name}'s post has been unfavored"
       end
 end

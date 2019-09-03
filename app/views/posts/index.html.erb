@@ -28,16 +28,14 @@
   <%= image_tag post.image.url %>
   <hr>
   <%= link_to 'Show', post %>
+  <% if logged_in? %>
+  <% if current_user.id == post.user.id %> 
+  
   <%= link_to 'Edit', edit_post_path(post) %>
   <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% unless post.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'Cancel favorite', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-  <%= link_to 'Make it a favorite', favorites_path(post_id: post.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
-<% end %>
-  </div> 
+  <% end %>
+</div> 
   <div class="card-footer">
   <div class="font-weight-bold"><%= post.user.First_Name %>
   <%= post.user.Second_Name %>
@@ -46,9 +44,12 @@
   
   </div>
 </div>
-       
-
 <% end %>
+<div class="card cardip1" style="width:300px">
+  <div class="card-header">Header</div>
+  <div class="card-body">Content</div>
+  <div class="card-footer">Footer</div>
+</div>
 <%= link_to 'New Post', new_post_path %>
 
 

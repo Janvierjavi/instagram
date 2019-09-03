@@ -16,13 +16,13 @@
 
   </head>
 
-  <body>
+  <body class="bg-light">
   
   <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
   <% end %>
   <% if logged_in? %>
-  <nav class="navbar nav1 navbar-light bg-light " style="height:90px">
+  <nav class="navbar nav1 navbar-light bg-white" style="height:90px">
   <h3><p class="font-italic"><i class="fab fa-instagram"></i>|Instagram </i></p></h3>
     <%= link_to "Profile", user_path(current_user.id) %>
     <%= link_to "Logout", session_path(current_user.id), method: :delete %>

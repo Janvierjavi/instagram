@@ -10,6 +10,11 @@
 }
 .cardip{
     position: absolute;
-    left: 30%;
+    left: 25%;
+}
+.cardip1{
+    position: absolute;
+    left: 63%;
+    bottom: 800px;
 }
 

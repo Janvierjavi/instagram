@@ -19,21 +19,6 @@
 <% end %>
 
 </p>
-<%= link_to "Login", new_session_path %>
-<%= link_to 'Edit', edit_user_path(@user) %> 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <p id="notice"><%= notice %></p>
 <h1>Users</h1>
 <% @users.each do |user| %>
@@ -45,3 +30,6 @@
      <% end %>
 <br>
 <%= link_to 'New User', new_user_path %>
+
+
+
