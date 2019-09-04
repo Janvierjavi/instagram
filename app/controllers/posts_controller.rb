@@ -38,6 +38,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
+        ContactMailer.contact_mail(@post).deliver  ##Postscript
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -79,6 +80,14 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:content, :image, :user_id, :image_cache)
     end
+
+
+    #for action mailer
+
+
+
+
+
 end
 
 
