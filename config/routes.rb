@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :profiles
   resources :posts
   get 'sessions/new'
+  root to 'user/new'
   resources :favorites, only: [ :index, :create, :destroy]
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
