@@ -7,7 +7,7 @@
   <%= post.user.Second_Name %>
   </div>
   <div class="card-body"> 
-  <%= image_tag post.image.url %>
+  <%= image_tag post.image.url, style:"height: 100px; width: 100px;" %>
   <hr>
   <h3><%= link_to '', post, class:"far fa-heart text-dark"  %>
   <% if logged_in? %>

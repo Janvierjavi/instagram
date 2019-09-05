@@ -4,7 +4,7 @@
     <div class="card-body">
     <% if current_user.id == favorite.user.id %>
     <%= favorite.post.content %>
-    <%= image_tag favorite.post.image.url %>
+    <%= image_tag favorite.post.image.url, style:"height: 100px; width: 100px;" %>
     </div>
     </div> 
     <%end%>
