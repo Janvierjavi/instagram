@@ -11,10 +11,39 @@
 .cardip{
     position: absolute;
     left: 25%;
+    top: 100px;
+    
 }
 .cardip1{
     position: absolute;
     left: 63%;
-    bottom: 800px;
+    bottom: 620px;
 }
 
+.card2{
+    position: absolute;
+    left: 35%;
+  background-color: blue;
+}
+.cardprof{
+    position: absolute;
+    left: 35%;
+    top:100px;
+}
+
+.cardsn{
+    position: absolute;
+    left: 35%;
+}
+.home{
+    position: absolute;
+    left: 20%;
+}
+.profi{
+    position: absolute;
+    left: 60%;
+}
+.profi1{
+    position: absolute;
+    left: 55%;
+}

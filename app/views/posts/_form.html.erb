@@ -11,26 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
+  <div class="card cardip" style="width:400px" >
+  <div class="card-header">New post</div>
+  <div class="card-body"><div class="field">
+  <%= form.text_area :content, class: "form-group" %>
+</div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <% if logged_in? %>
-    <%= form.hidden_field :user_id, value: current_user.id %>
-    <%end%>
-  </div>
-
+<div class="field">
+  <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+  <%= form.file_field :image %>
+  <%= form.hidden_field :image_cache %>
+</div></div>
+  <div class="card-footer"> <div class="field">
+  <% if logged_in? %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%end%>
   <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit %>  </div>
+</div></div>
+</div>
 <% end %>

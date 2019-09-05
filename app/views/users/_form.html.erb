@@ -12,34 +12,29 @@
   <% end %>
 
   <div class="card cont" style="width:400px">
-  <div class="card-header"> Sign up to see photos and videos from your friends.</div>
+  <div class="card-header bg-white"> <%= image_tag "ins.png" %> Sign up to see photos and videos from your friends.</div>
   <div class="card-body">
   <div class="field">
-  <%= form.label :Email %>
-  <%= form.text_field :Email %>
+  <%= form.text_field :Email, placeholder: "email", class:"form-control mb-3" %>
 </div>
   <div class="field">
-  <%= form.label :First_Name %>
-  <%= form.text_field :First_Name %>
+  <%= form.text_field :First_Name,placeholder: "first name", class:"form-control mb-3" %>
 </div>
 
   <div class="field">
-    <%= form.label :Second_Name %>
-    <%= form.text_field :Second_Name %>
+    <%= form.text_field :Second_Name,placeholder: "second name", class:"form-control mb-3" %>
   </div>
 
 <div class="field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
+  <%= form.password_field :password,placeholder: "password", class:"form-control mb-3" %>
 </div>
 
 <div class="field">
-  <%= form.label :password_confirmation %>
-  <%= form.password_field :password_confirmation %>
+  <%= form.password_field :password_confirmation,placeholder: "password confirmation", class:"form-control mb-3" %>
 </div>
 
 </div> 
-  <div class="card-footer"><div class="actions">
+  <div class="card-footer"><div class="actions ">
   <%= form.submit %>
   </div></div>
 </div>

@@ -1,11 +1,15 @@
-<h1> Instagram in</h1>
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-
-  <%= f.label :email %>
-  <%= f.email_field :Email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Log in" %>
+  <div class="card cardsn" style="width:400px">
+  <div class="card-body ">
+  <%= image_tag "ins.png" %>
+  <%= f.email_field :Email, placeholder:"email", class:"form-control mb-3" %>
+  <%= f.password_field :password, placeholder:"password", class:"form-control mb-3"  %>
+  <%= f.submit "Log in", class:"form-control mb-3 btn-primary" %>
+  </div> 
+</div>
 <% end %>
+<div class="card bg-light cont1" style="width:400px">
+    <div class="card-body text-center">
+      <p class="card-text">Haven't any account?  <%= link_to "Sign Up", new_user_path %></p>
+    </div>
+  </div>

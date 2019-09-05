@@ -1,23 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.First_Name %>
-</p>
+<div class="card border-light cardprof" style="width:400px" >
+  <div class="card-header  border-light row bg-light">
+  <p class="mr-sm-2 font-weight-light bg-light">  
+ <%if logged_in?%>
+ <% if @user.profile.present?%>
+  <%= image_tag @user.profile.image.url, class: "round" %> 
+  <%end%>
+  <div class="dropdown">
+  <button type="button" class="btn btn-light fas fa-cog" data-toggle="dropdown">
+  </button>
+  <div class="dropdown-menu">
+  <%= link_to "Logout", session_path(current_user.id),class: "btn btn-light", method: :delete %><hr>
+  <%= link_to "Home", posts_path, class: "btn btn-light" %><hr>
+  <%= link_to "Change Password", edit_user_path(@user) , class: "btn btn-light" %>
+  <%= link_to 'change profile', edit_profile_path %>
+  </div>
+</div>
+  <%end%>
+  <b><%= @user.First_Name %>
+  <%= @user.Second_Name %></b>
+  <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-info custom-select-sm" %></p>
+  
+  </div>
+    <b>
+    <div class="card-footer bg-light"> 
+    <%= @user.Second_Name %>
+    <%= @user.First_Name %></b>
+  </div>
+</div>
+    <p class="card-text cardip1">Please log in for use ur account?  <%= link_to "Login", new_session_path %></p>
 
-<p>
-  <strong>Second name:</strong>
-  <%= @user.Second_Name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.Email %>
-</p>
-<p>
-<%= link_to "Login", new_session_path %>
-<%= link_to 'Edit', edit_user_path(@user) %> 
-<%= link_to "Back", posts_path %>
 
 
 

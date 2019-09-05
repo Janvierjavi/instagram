@@ -1,25 +1,7 @@
-<% if logged_in? %>
-<% check = 0, links='1', id=nil %>
-<% @profiles.each do |profile| %>
-<% if current_user.id == profile.user_id %>
-  <% check = 1%>
-  <%links = profile.image.url %>
-  <%id =profile%>
-<% end %>
-<% end %>
-<% if check==1 %>
-<p style="color:blue">profile picture</p>
-<p><%= image_tag links, class:"round" unless links.blank? %></p>
-<%= link_to 'change ', edit_profile_path(id) %>
-<%= link_to 'remove ', id, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% else %>
-<p><i class="fal fa-user"></i></p>
-<%= link_to 'upload a profile picture', new_profile_path %>
-<% end %>
-<% end %>
 
+     <%= link_to 'New Post', new_post_path, class:"btn btn-success" %>
      <% @posts.each do |post| %>
-      <div class="card cardip" style="width:500px">
+      <div class="card cardip mb-3" style="width:500px">
   <div class="card-header">
   <%= post.user.First_Name %>
   <%= post.user.Second_Name %>
@@ -27,14 +9,13 @@
   <div class="card-body"> 
   <%= image_tag post.image.url %>
   <hr>
-  <%= link_to 'Show', post %>
+  <h3><%= link_to '', post, class:"far fa-heart text-dark"  %>
   <% if logged_in? %>
   <% if current_user.id == post.user.id %> 
-  
-  <%= link_to 'Edit', edit_post_path(post) %>
-  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to '', edit_post_path(post), class:"fas fa-edit text-dark" %>
+  <%= link_to '', post, method: :delete, data: { confirm: 'Are you sure?' }, class:" text-dark fas fa-trash-alt" %>
   <% end %>
-  <% end %>
+  <% end %></h3>
 </div> 
   <div class="card-footer">
   <div class="font-weight-bold"><%= post.user.First_Name %>
@@ -46,11 +27,34 @@
 </div>
 <% end %>
 <div class="card cardip1" style="width:300px">
-  <div class="card-header">Header</div>
-  <div class="card-body">Content</div>
-  <div class="card-footer">Footer</div>
+  <div class="card-header">
+  
+  <% if logged_in? %>
+<% check = 0, links='1', id=nil %>
+
+<% @profiles.each do |profile| %>
+<% if current_user.id == profile.user_id %>
+  <% check = 1%>
+  <div class=" profil">
+  <%links = profile.image.url %>
+  <%id =profile%>
+<% end %>
+<% end %>
+<% if check==1 %>
+<p><%= image_tag links, class:"round" unless links.blank? %>
+</p>
+<% else %>
+<p><i class="fal fa-user"></i></p>
+<%= link_to 'upload a profile picture', new_profile_path %>
+<% end %>
+<% end %>
 </div>
-<%= link_to 'New Post', new_post_path %>
+  
+  </div>
+  <div class="card-body">friends</div>
+  <div class="card-footer">status</div>
+</div>
+
 
 
 

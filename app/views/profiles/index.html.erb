@@ -11,8 +11,7 @@
 <% if check==1 %>
 <p style="color:blue">profile picture</p>
 <p><%= image_tag links, class:"round" unless links.blank? %></p>
-<%= link_to 'change ', edit_profile_path(id) %>
-<%= link_to 'remove ', id, method: :delete, data: { confirm: 'Are you sure?' } %>
+
 <% else %>
 <p><i class="fal fa-user"></i></p>
 <%= link_to 'upload a profile picture', new_profile_path %>

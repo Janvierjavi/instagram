@@ -1,16 +1,28 @@
 <p id="notice"><%= notice %></p>
+
+<div class="card cardip" style="width:400px">
 <p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-<p>
-  <strong>Image:</strong>
   <%= image_tag @post.image.url %>
 </p>
-<p>
-  <strong>posted by:</strong>
-  <%= @post.user.First_Name %>
-</p>
+  <div class="card-body">
+    <h4 class="card-title">
+    <p>
+    <strong>posted by:</strong>
+    <%= @post.user.First_Name %>
+  </p></h4>
+    <p class="card-text"><p>
+    <strong>Content:</strong>
+    <%= @post.content %>
+  </p></p>
+  </div>
+  <% if logged_in? %>
+  <% if current_user.id == @post.user.id %> 
+  <p >
+<%= link_to 'Edit', edit_post_path(@post), class: "btn btn-info custom-select-sm" %> 
+<%= link_to 'Back', posts_path, class: "btn btn-success custom-select-sm" %></p>
+<%end%>
+<%end%>
+</div>
 <% unless @post.user_id == current_user.id %>
   <% if @favorite.present? %>
     <%= link_to 'Cancel favorite', favorites_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
@@ -18,9 +30,3 @@
     <%= link_to 'Make it a favorite', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
 <% end %>
-<% if logged_in? %>
-  <% if current_user.id == @post.user.id %> 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-<%end%>
-<%end%>
