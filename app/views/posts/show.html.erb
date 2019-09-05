@@ -19,7 +19,7 @@
   <% if current_user.id == @post.user.id %> 
   <p >
 <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-info custom-select-sm" %> 
-<%= link_to 'Back', posts_path, class: "btn btn-success custom-select-sm" %></p>
+<%= link_to 'post', posts_path, class: "btn btn-success custom-select-sm" %></p>
 <%end%>
 <%end%>
 </div>
