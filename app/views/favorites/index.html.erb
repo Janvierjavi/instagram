@@ -1,11 +1,15 @@
+<div class"card cardip ">
 <% @favorites.each do |favorite| %>
-  
-    <div class"card cardip">
-    <div class="card-body">
+    <div class="card-body ">
     <% if current_user.id == favorite.user.id %>
-    <%= favorite.post.content %>
     <%= image_tag favorite.post.image.url, style:"height: 100px; width: 100px;" %>
+    <hr>
+    <%= favorite.post.content %>
+    <p class="font-weight-bold"> liked by : 
+    <%= favorite.user.First_Name %>
+</p>
+    <%end%>
     </div>
     </div> 
     <%end%>
-    <%end%>
+    

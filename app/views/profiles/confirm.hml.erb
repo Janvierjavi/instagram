@@ -1,7 +1,7 @@
 <h1>confirmation screen</h1>
 <%= form_with(model: @profile, url: profiles_path, local: true) do |form| %>
   <!-- Description for displaying the uploaded image on the confirmation screen -->
-  <%= image_tag(@profile.image.url) if @profile.image && @profile.image.url %>
+  <%= image_tag(@profile.image.url) if @profile.image && @profile.image.url, class:"images" %>
   <%= form.hidden_field :image_cache %>
   <%= form.submit "Post" %>
 <% end %>

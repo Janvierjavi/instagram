@@ -1,5 +1,4 @@
 
-     <%= link_to 'New Post', new_post_path, class:"btn btn-success" %>
      <% @posts.each do |post| %>
       <div class="card cardip mb-3" style="width:500px">
   <div class="card-header">
@@ -7,7 +6,7 @@
   <%= post.user.Second_Name %>
   </div>
   <div class="card-body"> 
-  <%= image_tag post.image.url, style:"height: 100px; width: 100px;" %>
+  <%= image_tag post.image.url, class:"images" %>
   <hr>
   <h3><%= link_to '', post, class:"far fa-heart text-dark"  %>
   <% if logged_in? %>
@@ -26,9 +25,11 @@
   </div>
 </div>
 <% end %>
+
 <div class="card cardip1" style="width:300px">
+<%= link_to 'New Post', new_post_path, class:"btn btn-success" %>
   <div class="card-header">
-  
+ 
   <% if logged_in? %>
 <% check = 0, links='1', id=nil %>
 
@@ -41,13 +42,14 @@
 <% end %>
 <% end %>
 <% if check==1 %>
-<p><%= image_tag links, class:"round" unless links.blank? %>
+<p><%= image_tag links, class:"images1" unless links.blank? %>
 </p>
 <% else %>
 <p><i class="fal fa-user"></i></p>
 <%= link_to 'upload a profile picture', new_profile_path %>
 <% end %>
 <% end %>
+
 </div>
   
   </div>

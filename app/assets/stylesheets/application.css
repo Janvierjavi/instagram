@@ -14,6 +14,16 @@
     top: 100px;
     
 }
+.images{
+    width:200px;
+    height: 200px;
+    border-radius: 40px;
+}
+.images1{
+    width:100px;
+    height: 100px;
+    border-radius: 20px;
+}
 .cardip1{
     position: absolute;
     left: 63%;

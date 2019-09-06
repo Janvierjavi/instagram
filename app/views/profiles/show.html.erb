@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
-<p>
+
+<div class="card cardip" style="width:400px"><p>
   <strong>Image:</strong>
-  <%= image_tag @profile.image.url %>
+  <%= image_tag @profile.image.url, class:"images1" %>
 </p>
 <p>
-  <strong>User:</strong>
+  <strong>picture of:</strong>
   <%= @profile.user.First_Name %>
   <%= @profile.user.Second_Name %>
 </p>
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<p><%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'post', posts_path %></p>
+</div>
