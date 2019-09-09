@@ -1,12 +1,20 @@
 
+     <%= link_to 'New Post', new_post_path, class:"btn btn-success" %>
      <% @posts.each do |post| %>
       <div class="card cardip mb-3" style="width:500px">
   <div class="card-header">
+  <% @profiles.each do |profile| %>
+    <% if current_user.id == post.user.id %> 
+    <% if profile.present?%>
+    <%= image_tag profile.image.url, class: "images1" %> 
+    <% end%>
+    <% end%>
+    <%end%>
   <%= post.user.First_Name %>
   <%= post.user.Second_Name %>
   </div>
   <div class="card-body"> 
-  <%= image_tag post.image.url, class:"images" %>
+  <%= image_tag post.image.url, class: "images" %>
   <hr>
   <h3><%= link_to '', post, class:"far fa-heart text-dark"  %>
   <% if logged_in? %>
@@ -14,22 +22,29 @@
   <%= link_to '', edit_post_path(post), class:"fas fa-edit text-dark" %>
   <%= link_to '', post, method: :delete, data: { confirm: 'Are you sure?' }, class:" text-dark fas fa-trash-alt" %>
   <% end %>
-  <% end %></h3>
+  </h3>
 </div> 
   <div class="card-footer">
   <div class="font-weight-bold"><%= post.user.First_Name %>
   <%= post.user.Second_Name %>
   </div>
   <%= post.content %>
-  
   </div>
-</div>
+  </div>
+<% end %>
 <% end %>
 
+
+
+
+
+
+
+
+
 <div class="card cardip1" style="width:300px">
-<%= link_to 'New Post', new_post_path, class:"btn btn-success" %>
   <div class="card-header">
- 
+  
   <% if logged_in? %>
 <% check = 0, links='1', id=nil %>
 
@@ -43,19 +58,18 @@
 <% end %>
 <% if check==1 %>
 <p><%= image_tag links, class:"images1" unless links.blank? %>
+
 </p>
 <% else %>
 <p><i class="fal fa-user"></i></p>
-<%= link_to 'upload a profile picture', new_profile_path %>
+</div>
+  <%= link_to 'upload a profile picture', new_profile_path %>
+  </div>
+  
+</div>
 <% end %>
 <% end %>
 
-</div>
-  
-  </div>
-  <div class="card-body">friends</div>
-  <div class="card-footer">status</div>
-</div>
 
 
 
