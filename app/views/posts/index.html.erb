@@ -1,8 +1,8 @@
-<div class="container cardip5" >
+<div class="container " >
 <div class="row">
 <div class="col-sm-2">
 
-<div class="card  mb-3" style="width:500px">
+<div class="card  mb-3 cardip5" style="width:500px">
 <% @posts.each do |post| %>
   <div class="card-header">
   <%= post.user.First_Name %>
@@ -32,7 +32,26 @@
 </div>
 
 </div>
+
 </div>
+<div class="card " style="width:300px; left:50%; bottom:900px;" >
+
+    <% @profiles.each do |profile| %>
+    
+        <% if current_user.id == profile.user.id %>
+        <% if profile.present?%>
+        <P>
+        <%= image_tag profile.image.url, class: "images1" %> 
+        <% end%>
+        <% else %>
+      <%= link_to 'upload a profile picture', new_profile_path, class:"btn btn-primary" %>
+        <%= profile.user.First_Name %>
+      <%= profile.user.Second_Name %>
+        </P>
+        <% end%>
+        <%end%>
+       </div>
+
 
 
 
