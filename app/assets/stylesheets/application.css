@@ -33,6 +33,13 @@
     left: 30%;
     top: 200px;
 }
+.cardipw2{
+
+    position: absolute;
+    left:400%;
+    bottom:65%;
+
+}
 .images{
     width:300px;
     height: 300px;
