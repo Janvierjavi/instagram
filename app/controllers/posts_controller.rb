@@ -40,7 +40,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
-        ContactMailer.contact_mail(@post).deliver  ##Postscript
+        # ContactMailer.contact_mail(@post).deliver  ##Postscript
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
