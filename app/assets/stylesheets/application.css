@@ -35,9 +35,10 @@
 }
 .cardipw2{
 
-    position: absolute;
+    position: fixed;
     left:400%;
-    bottom:65%;
+    bottom:60%;
+
 
 }
 .images{
