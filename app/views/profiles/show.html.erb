@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<div class="card cardip" style="width:400px"><p>
+<div class="card cardipw" style="width:400px"><p>
   <strong>Image:</strong>
   <%= image_tag @profile.image.url, class:"images1" %>
 </p>
+<%= link_to 'upload a profile picture', new_profile_path, class:"btn btn-primary" %>
 <p>
   <strong>picture of:</strong>
   <%= @profile.user.First_Name %>

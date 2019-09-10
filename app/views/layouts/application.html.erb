@@ -17,7 +17,7 @@
 
   <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
-  <% end %>
+    <% end %>
   <% if logged_in? %>
   <nav class="navbar nav1 navbar-light bg-white fixed-top" style="height:70px">
   <h3 class="home"><p class="font-italic"> 
@@ -29,8 +29,10 @@
     <%= link_to "", user_path(current_user.id), class: "fas fa-user text-dark " %>
    </h2>
     </nav>
-  <% else %>
+    
+
   
+
   <% end %>
   <%= yield %>
   </body>
