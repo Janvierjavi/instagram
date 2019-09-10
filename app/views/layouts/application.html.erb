@@ -29,7 +29,21 @@
     <%= link_to "", user_path(current_user.id), class: "fas fa-user text-dark " %>
    </h2>
     </nav>
+    <div class="card " style="width:200px; left:800px;" >
+
+<% @profiles.each do |profile| %>
+    <% if current_user.id == profile.user.id %>
+    <% if profile.present?%>
+    <%= image_tag profile.image.url, class: "images1" %> 
+    <% end%>
+    <% else %>
+  <%= link_to 'upload a profile picture', new_profile_path, class:"btn btn-primary" %>
+    <%= profile.user.First_Name %>
+  <%= profile.user.Second_Name %>
     
+    <% end%>
+    <%end%>
+   </div>
 
   
 
