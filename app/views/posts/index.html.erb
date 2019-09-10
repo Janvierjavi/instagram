@@ -1,69 +1,80 @@
+<div class="container cardip5" >
+<div class="row">
+<div class="col-sm-2">
 
-   <div class="container-fluid">
-
-     <% @posts.each do |post| %>
-      <div class="card cardip mb-3" style="width:500px">
+<div class="card  mb-3" style="width:500px">
+<% @posts.each do |post| %>
   <div class="card-header">
-  <% @profiles.each do |profile| %>
-    <% if current_user.id == post.user.id %> 
-    <% if profile.present?%>
-    <%= image_tag profile.image.url, class: "images1" %> 
-    <% end%>
-    <% end%>
-    <%end%>
   <%= post.user.First_Name %>
   <%= post.user.Second_Name %>
   </div>
   <div class="card-body"> 
   <%= image_tag post.image.url, class: "images" %>
   <hr>
-  <h3><%= link_to '', post, class:"far fa-heart text-dark"  %>
-  <% if logged_in? %>
-  <% if current_user.id == post.user.id %> 
-  <%= link_to '', edit_post_path(post), class:"fas fa-edit text-dark" %>
-  <%= link_to '', post, method: :delete, data: { confirm: 'Are you sure?' }, class:" text-dark fas fa-trash-alt" %>
-  <% end %>
-  </h3>
-</div> 
-  <div class="card-footer">
-  <div class="font-weight-bold"><%= post.user.First_Name %>
-  <%= post.user.Second_Name %>
-  </div>
-  <%= post.content %>
-  </div>
-  </div>
+  <h3><%= link_to '', post, class:"far fa-heart text-dark"  %> </h3>
+<% if logged_in? %>
+<% if current_user.id == post.user.id %> 
+<%= link_to '', edit_post_path(post), class:"fas fa-edit text-dark" %>
+<%= link_to '', post, method: :delete, data: { confirm: 'Are you sure?' }, class:" text-dark fas fa-trash-alt" %>
+</div>
 <% end %>
 <% end %>
-
-<div class="card cardip1" style="width:300px">
-<%= link_to 'New Post', new_post_path, class:"btn btn-success" %>
-  <div class="card-header">
-  
-  <% if logged_in? %>
-<% check = 0, links='1', id=nil %>
+ 
+ <div class="card-footer">
+ <div class="font-weight-bold">
+ <%= post.user.First_Name %>
+ <%= post.user.Second_Name %>
+ </div>
+ <%= post.content %>
+ </div>
+  </div>
+  <%end%>
+</div>
+<div class="col-sm-2 cardipw" >
 
 <% @profiles.each do |profile| %>
-<% if current_user.id == profile.user_id %>
-  <% check = 1%>
-  <div class=" profil">
-  <%links = profile.image.url %>
-  <%id =profile%>
-<% end %>
-<% end %>
-<% if check==1 %>
-<p><%= image_tag links, class:"images1" unless links.blank? %>
+    <% if current_user.id == profile.user.id %>
+    <% if profile.present?%>
+    <%= image_tag profile.image.url, class: "images1" %> 
+    <%= profile.user.First_Name %>
+  <%= profile.user.Second_Name %>
+  <% else %>
+  <%= link_to 'upload a profile picture', new_profile_path, class:"btn btn-primary" %>
+    <% end%>
+    <% end%>
+    <%end%>
+   </div>
+</div>
+</div>
 
-</p>
-<% else %>
-<p><i class="fal fa-user"></i></p>
-</div>
-  <%= link_to 'upload a profile picture', new_profile_path %>
-  </div>
-  
-</div>
-<% end %>
-<% end %>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+
+
+
+
+ 
+
+
+
+     
+
+
 
 
 

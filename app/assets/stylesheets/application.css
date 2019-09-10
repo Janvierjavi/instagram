@@ -10,9 +10,28 @@
 }
 .cardip{
     position: absolute;
-    left: 25%;
-    top: 100px;
+    left: 40%;
+    top:500px;
     
+}
+.cardip5{
+    position: absolute;
+    left: 20%;
+    top:100px;
+    
+}
+
+.cardip4{
+
+    position: absolute;
+    left:400%;
+    bottom:90%;
+}
+.cardipw{
+
+    position: absolute;
+    left: 30%;
+    top: 200px;
 }
 .images{
     width:300px;

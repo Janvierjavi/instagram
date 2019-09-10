@@ -1,5 +1,5 @@
 <%= form_with(model: post, local: true) do |form| %>
-  <div class="card cardip" style="width:400px" >
+  <div class="card cardipw" style="width:400px" >
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -9,17 +9,17 @@
         <li><%= message %></li>
       <% end %>
       </ul>
-    </div>
+   
   <% end %>
-
-  <div class="card cardip" style="width:400px" >
+  </div>
+  <div class="card cardipw" style="width:400px" >
   <div class="card-header">New post</div>
   <div class="card-body"><div class="field">
   <%= form.text_area :content, class: "form-group" %>
 </div>
 
 <div class="field">
-  <%= image_tag(@post.image.url) if @post.image && @post.image.url, , class:"images"%>
+  <%= image_tag(@post.image.url, class:"images") if @post.image && @post.image.url%>
   <%= form.file_field :image %>
   <%= form.hidden_field :image_cache %>
 </div></div>
@@ -31,4 +31,5 @@
     <%= form.submit %>  </div>
 </div></div>
 </div>
+
 <% end %>
